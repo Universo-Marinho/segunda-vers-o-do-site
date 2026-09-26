@@ -2,399 +2,12 @@
 <html lang="pt-BR">
 
 <head>
+    <link rel="stylesheet" href="style.css">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Universo Marinho</title>
-
-    <style>
-
-        *{
-            box-sizing:border-box;
-        }
-
-        body{
-            margin:0;
-            font-family:Arial, sans-serif;
-
-            background:#04111f;
-
-            color:white;
-        }
-
-
-        .topo{
-            position:fixed;
-            top:0;
-            left:0;
-
-            width:100%;
-            height:80px;
-
-            background:#062b49;
-
-            display:flex;
-            justify-content:space-between;
-            align-items:center;
-
-            padding:0 30px;
-
-            z-index:1000;
-    
-            box-shadow:0 3px 15px rgba(0, 180, 220, 0.20);
-        }
-
-        .topo h1{
-            color:#e8faff;
-
-            margin:0;
-
-            font-size:30px;
-
-            text-shadow:0 0 10px rgba(83, 210, 238, 0.35);
-        }
-
-
-        .pesquisa{
-            display:flex;
-            align-items:center;
-            gap:10px;
-        }
-
-        .pesquisa input{
-            width:250px;
-            height:40px;
-
-            padding:0 15px;
-
-            
-            background:rgba(35, 148, 180, 0.15);
-
-            border:1px solid rgba(83, 210, 238, 0.45);
-
-            border-radius:20px;
-
-            color:white;
-
-            outline:none;
-
-            backdrop-filter:blur(8px);
-
-            transition:0.3s;
-        }
-
-        .pesquisa input::placeholder{
-            color:rgba(220,245,250,0.7);
-        }
-
-        .pesquisa input:focus{
-            border-color:#53d2ee;
-
-            box-shadow:
-                0 0 10px rgba(83, 210, 238, 0.25);
-        }
-
-        .pesquisa button{
-            height:40px;
-
-            padding:0 15px;
-
-            background:rgba(35, 148, 180, 0.18);
-
-            border:1px solid rgba(83, 210, 238, 0.45);
-
-            border-radius:20px;
-
-            color:#bdeffc;
-
-            cursor:pointer;
-
-            transition:0.3s;
-        }
-
-        .pesquisa button:hover{
-            background:#53d2ee;
-
-            color:#04111f;
-        }
-
-
-
-        #animacao{
-            position:relative;
-
-            height:100vh;
-
-            overflow:hidden;
-        }
-
-        #animacao video{
-            width:100%;
-            height:100%;
-
-            object-fit:cover;
-        }
-
-        .titulo-video{
-            position:absolute;
-
-            top:50%;
-            left:50%;
-
-            transform:translate(-50%, -50%);
-
-            color:white;
-
-            text-align:center;
-
-            text-shadow:
-                0 0 10px #000,
-                0 0 25px rgba(0,0,0,0.8);
-        }
-
-        .titulo-video h2{
-            font-size:60px;
-
-            margin:0;
-
-            color:#e8faff;
-        }
-
-        .titulo-video p{
-            font-size:24px;
-
-            color:#bdeffc;
-        }
-
-
-
-        .area-carrossel{
-            width:100%;
-
-            padding:70px 80px;
-
-            position:relative;
-
-            overflow:hidden;
-
-            background:
-                linear-gradient(
-                    180deg,
-                    #04111f,
-                    #06243b
-                );
-        }
-
-
-        .titulo-carrossel{
-            color:white;
-
-            text-align:center;
-
-            margin-bottom:40px;
-        }
-
-        .titulo-carrossel h2{
-            font-size:35px;
-
-            margin:0 0 10px;
-
-            color:#e8faff;
-
-            text-shadow:
-                0 0 10px rgba(83,210,238,0.3);
-        }
-
-        .titulo-carrossel p{
-            color:#8fd9e8;
-
-            margin:0;
-        }
-
-
-        .carrossel{
-            display:flex;
-
-            align-items:center;
-
-            position:relative;
-
-            width:100%;
-        }
-
-        .cards{
-            display:flex;
-
-            gap:25px;
-
-            width:100%;
-
-            overflow:hidden;
-
-            scroll-behavior:smooth;
-
-            padding:20px 5px;
-        }
-
-
-
-        .bloco{
-            min-width:250px;
-
-            height:400px;
-
-            background:
-                linear-gradient(
-                    160deg,
-                    rgba(11, 72, 103, 0.95),
-                    rgba(5, 42, 68, 0.98)
-                );
-
-            border-radius:30px;
-
-            border:1px solid rgba(83,210,238,0.18);
-
-            box-shadow:
-                0 8px 25px rgba(0,0,0,0.35),
-                0 0 15px rgba(35,148,180,0.08);
-
-            display:flex;
-
-            flex-direction:column;
-
-            align-items:center;
-
-            cursor:pointer;
-
-            transition:0.4s;
-
-            text-align:center;
-
-            color:white;
-
-            overflow:hidden;
-
-            flex-shrink:0;
-        }
-
-
-        .bloco:hover{
-            transform:translateY(-10px);
-
-            border-color:rgba(83,210,238,0.55);
-
-            box-shadow:
-                0 12px 30px rgba(0,0,0,0.45),
-                0 0 25px rgba(83,210,238,0.20);
-        }
-
-
-
-        .bloco img{
-            width:100%;
-
-            height:250px;
-
-            object-fit:cover;
-
-            display:block;
-        }
-
-
-        .bloco h2{
-            margin:25px 10px 10px;
-
-            font-size:22px;
-
-            color:#e8faff;
-
-            text-shadow:
-                0 0 8px rgba(83,210,238,0.2);
-        }
-
-
-        .seta{
-            position:absolute;
-
-            top:50%;
-
-            transform:translateY(-50%);
-
-            width:50px;
-            height:50px;
-
-            border:none;
-
-            border-radius:50%;
-
-            background:#073b5c;
-
-            color:#bdeffc;
-
-            font-size:30px;
-
-            cursor:pointer;
-
-            z-index:10;
-
-            display:flex;
-
-            align-items:center;
-
-            justify-content:center;
-
-            transition:0.3s;
-
-            box-shadow:
-                0 4px 15px rgba(0,0,0,0.3);
-        }
-
-
-        .seta:hover{
-            background:#53d2ee;
-
-            color:#04111f;
-
-            transform:
-                translateY(-50%)
-                scale(1.1);
-
-            box-shadow:
-                0 0 20px rgba(83,210,238,0.4);
-        }
-
-
-        .esquerda{
-            left:15px;
-        }
-
-        .direita{
-            right:15px;
-        }
-
-
-
-        @media(max-width:800px){
-
-            .topo h1{
-                font-size:22px;
-            }
-
-            .pesquisa input{
-                width:150px;
-            }
-
-            .area-carrossel{
-                padding:60px 50px;
-            }
-
-            .bloco{
-                min-width:230px;
-            }
-
-        }
-
-    </style>
 
 </head>
 
@@ -402,10 +15,9 @@
 <body>
 
 
-
     <header class="topo">
 
-        <h1>Universo Marinho</h1>
+        <h1>Universo <span>Marinho</span></h1>
 
         <div class="pesquisa">
 
@@ -422,13 +34,12 @@
 
 
 
-
     <section id="animacao">
 
         <video autoplay muted loop>
 
             <source
-                src="aquario.mp4.mp4"
+                src="https://www.pexels.com/pt-br/download/video/38852465/"
                 type="video/mp4"
             >
 
@@ -439,7 +50,8 @@
 
             <h2>Universo Marinho</h2>
 
-            <p>Role Para Explorar ↓</p>
+            <p1>Explore e conheça mais sobre a história deles ↓</p1>
+
 
         </div>
 
@@ -455,13 +67,14 @@
 
             <h2>Conheça as espécies extintas ou com risco de extinção</h2>
 
-            <p>Explore e conheça mais sobre a história deles</p>
+            <p>
+                "Conhecer para preservar. Proteger hoje para não perder amanhã."
+            </p>
 
         </div>
 
 
         <div class="carrossel">
-
 
 
             <button
@@ -473,18 +86,18 @@
 
 
 
-
             <div class="cards" id="cards">
+
 
 
 
                 <div
                     class="bloco"
-                    onclick="location.href='Baleia-Azul.html'"
+                    onclick="location.href='animal.html?animal=baleia-azul'"
                 >
 
                     <img
-                        src="baleia-azul.png"
+                        src="https://midias.correio24horas.com.br/2024/07/30/edicaseas-baleias-sao-seres-fantasticos-e-repletos-de-curiosidades-imagem-vladimir-turkenich---shutterstock-00kwuzmnbhju8.jpg"
                         alt="Baleia Azul"
                     >
 
@@ -493,13 +106,15 @@
                 </div>
 
 
+
+
                 <div
                     class="bloco"
-                    onclick="location.href='Tartaruga-De-Pente.html'"
+                    onclick="location.href='animal.html?animal=tartaruga-de-pente'"
                 >
 
                     <img
-                        src="tartaruga-de-pente.jpg"
+                        src="https://www.infoescola.com/wp-content/uploads/2013/10/tartaruga-de-pente_211822132-1000x667.jpg"
                         alt="Tartaruga-de-Pente"
                     >
 
@@ -510,13 +125,14 @@
 
 
 
+
                 <div
                     class="bloco"
-                    onclick="location.href='Raia-Diabo.html'"
+                    onclick="location.href='animal.html?animal=raia-diabo'"
                 >
 
                     <img
-                        src="raia-diabo.png"
+                        src="https://content.nationalgeographic.pt/medio/import/attachment/revistas/221/RaiasDiabo/r7.jpg"
                         alt="Raia-Diabo"
                     >
 
@@ -527,288 +143,160 @@
 
 
 
+
                 <div
                     class="bloco"
-                    onclick="location.href='Cavalo-Marinho.html'"
+                    onclick="location.href='animal.html?animal=cavalo-marinho'"
                 >
 
                     <img
-                        src="cavalo-marinho.png"
+                        src="https://fishesofaustralia.net.au/images/image/HippocampProcerus4DHarasti.jpg"
                         alt="Cavalo-Marinho"
                     >
 
                     <h2>Cavalo Marinho</h2>
 
                 </div>
-                      
 
-    <div
-        class="bloco"
-        onclick="location.href='foca-monge-do-havaí.html'"
-    >
 
-        <img
-            src="foca-monge-do-havai.png"
-            alt="Foca Monge Do Havaí"
-        >
 
-        <h2>Foca Monge Do Havaí</h2>
 
-    </div>
+                <div
+                    class="bloco"
+                    onclick="location.href='animal.html?animal=foca-monge-do-havai'"
+                >
 
-    <div
-        class="bloco"
-        onclick="location.href='Vaquita.html'"
-    >
+                    <img
+                        src="https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Monachus_schauinslandi.jpg/1920px-Monachus_schauinslandi.jpg?utm_source=pt.wikipedia.org&utm_campaign=index&utm_content=thumbnail"
+                        alt="Foca Monge Do Havaí"
+                    >
 
-        <img
-            src="vaquita.png"
-            alt="Vaquita"
-        >
+                    <h2>Foca Monge Do Havaí</h2>
 
-        <h2>Vaquita (Phocoena sinus)</h2>
+                </div>
 
-    </div>
 
 
 
-    <div
-        class="bloco"
-        onclick="location.href='Peixe-Boi.html'"
-    >
+                <div
+                    class="bloco"
+                    onclick="location.href='animal.html?animal=vaquita'"
+                >
 
-        <img
-            src="peixe-boi.png"
-            alt="Peixe-Boi"
-        >
+                    <img
+                        src="https://yaqupacha.de/wp-content/uploads/2026/04/vaquita_underwater_front.jpg"
+                        alt="Vaquita"
+                    >
 
-        <h2>Peixe Boi</h2>
+                    <h2>Vaquita (Phocoena sinus)</h2>
 
-    </div>
+                </div>
 
 
 
-    <div
-        class="bloco"
-        onclick="location.href='golfinho-corcunda-de-Taiwan.html'"
-    >
 
-        <img
-            src="golfinho-corcunda-de-Taiwan.png"
-            alt="golfinho-corcunda-de-Taiwan"
-        >
+                <div
+                    class="bloco"
+                    onclick="location.href='animal.html?animal=peixe-boi'"
+                >
 
-        <h2>Golfinho Corcunda De Taiwan</h2>
+                    <img
+                        src="https://alnb.com.br/wp-content/uploads/2025/05/Femea-e-filhote.jpg"
+                        alt="Peixe-Boi"
+                    >
 
-    </div>
+                    <h2>Peixe Boi</h2>
 
+                </div>
 
 
-    <div
-        class="bloco"
-        onclick="location.href='tubarao-martelo-gigante.html'"
-    >
 
-        <img
-            src="tubarao-martelo-gigante.png"
-            alt="tubarao-martelo-gigante"
-        >
 
-        <h2>Tubarão martelo gigante</h2>
+                <div
+                    class="bloco"
+                    onclick="location.href='animal.html?animal=golfinho-corcunda-de-taiwan'"
+                >
 
-    </div>
+                    <img
+                        src="https://www.fisheries.noaa.gov/s3/styles/full_width/s3/dam-migration/750x500-sousa-chinensis-taiwanensis.jpg?itok=Cv7T2cbA"
+                        alt="golfinho-corcunda-de-Taiwan"
+                    >
 
+                    <h2>Golfinho Corcunda De Taiwan</h2>
 
+                </div>
 
-    <div
-        class="bloco"
-        onclick="location.href='enguia-europeias.html'"
-    >
 
-        <img
-            src=""
-            alt="enguia-europeias"
-        >
 
 
-        <h2>Enguia Europeias</h2>
+                <div
+                    class="bloco"
+                    onclick="location.href='animal.html?animal=tubarao-martelo-gigante'"
+                >
 
-    </div>
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Great_hammerhead2.jpg?utm_source=pt.wikipedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled"
+                        alt="tubarao-martelo-gigante"
+                    >
 
+                    <h2>Tubarão martelo gigante</h2>
 
+                </div>
 
-    <div
-        class="bloco"
-        onclick="location.href='tubarao-anjo.html'"
-    >
 
-        <img
-            src=""
-            alt="tubarao-anjo"
-        >
 
-        <h2>Tubarão Anjo</h2>
 
-    </div>
 
+                <div
+                    class="bloco"
+                    onclick="location.href='animal.html?animal=enguia-europeia'"
+                >
 
+                    <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/5/58/Anguilla_anguilla.jpg?utm_source=pt.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled"
+                        alt="enguia-europeias"
+                    >
 
-    <div
-        class="bloco"
-        onclick="location.href='estrela-do-mar-gigante.html'"
-    >
+                    <h2>Enguia Europeia (Anguilla anguilla)</h2>
 
-        <img
-            src=""
-            alt="estrela-do-mar-gigante"
-        >
+                </div>
 
-        <h2>Estrela Do Mar Gigante</h2>
 
-    </div>
 
 
 
-    <div
-        class="bloco"
-        onclick="location.href='falsa-orca.html'"
-    >
+                <div
+                    class="bloco"
+                    onclick="location.href='animal.html?animal=tubarao-anjo'"
+                >
 
-        <img
-            src=""
-            alt="falsa-orca"
-        >
+                    <img
+                        src="https://sp-ao.shortpixel.ai/client/to_auto,q_lossless,ret_img,w_900/https://blogdopescador.com/wp-content/uploads/2022/10/cacao-anjo-4.jpg"
+                        alt="tubarao-anjo"
+                    >
 
-        <h2>Falsa Orca</h2>
+                    <h2>Tubarão Anjo (Squatina squatina)</h2>
 
-    </div>
+                </div>
 
 
-    <div
-        class="bloco"
-        onclick="location.href='poro-cor-de-rosa-e-cinza.html'"
-    >
 
-        <img
-            src=""
-            alt="poro-cor-de-rosa-e-cinza"
-        >
+                <div
+                    class="bloco"
+                    onclick="location.href='animal.html?animal=estrela-do-mar-girassol'"
+                >
 
-        <h2>Poro Cor De Rosa E Cinza</h2>
+                    <img
+                        src="https://super.abril.com.br/wp-content/uploads/2025/08/0708-estrelas-do-mar-layout_site.jpg?quality=70&w=640&h=360&crop=1"
+                        alt="estrela-do-mar-girassol"
+                    >
 
-    </div>
+                    <h2>
+                        Estrela Do Mar Girassol
+                        (Pycnopodia helianthoides)
+                    </h2>
 
-
-
-    <div
-        class="bloco"
-        onclick="location.href='leao-marinho.html'"
-    >
-
-        <img
-            src=""
-            alt="leao-marinho"
-        >
-
-        <h2>Leão Marinho</h2>
-
-    </div>
-
-    <!-- a partir daqui são os blocos que ainda não foram definidos os animais, por isso estão vazios-->
-
-
-    <div
-        class="bloco"
-        onclick="location.href='.html'"
-    >
-
-        <img
-            src=""
-            alt=""
-        >
-
-        <h2></h2>
-
-    </div>
-
-
-    <div
-        class="bloco"
-        onclick="location.href='.html'"
-    >
-
-        <img
-            src=""
-            alt=""
-        >
-
-        <h2></h2>
-
-    </div>
-
-
-    <div
-        class="bloco"
-        onclick="location.href='.html'"
-    >
-
-        <img
-            src=""
-            alt=""
-        >
-
-        <h2></h2>
-
-    </div>
-
-
-    <div
-        class="bloco"
-        onclick="location.href='.html'"
-    >
-
-        <img
-            src=""
-            alt=""
-        >
-
-        <h2></h2>
-
-    </div>
-
-
-    <div
-        class="bloco"
-        onclick="location.href='.html'"
-    >
-
-        <img
-            src=""
-            alt=""
-        >
-
-        <h2></h2>
-
-    </div>
-
-
-    <div
-        class="bloco"
-        onclick="location.href='.html'"
-    >
-
-        <img
-            src=""
-            alt=""
-        >
-
-        <h2></h2>
-
-    </div>
-
-
-    
-</div>
+                </div>
 
 
             </div>
@@ -826,38 +314,13 @@
         </div>
 
     </section>
-     <script>
-
-        const cards = document.getElementById("cards");
 
 
-        function moverDireita(){
-
-            cards.scrollBy({
-
-                left:300,
-
-                behavior:"smooth"
-
-            });
-
-        }
-
-
-        function moverEsquerda(){
-
-            cards.scrollBy({
-
-                left:-300,
-
-                behavior:"smooth"
-
-            });
-
-        }
-
-    </script>
-
+    <script src="script.js"></script>
+    
+    <footer class="rodape">
+        <p>Este site foi criado com o objetivo de informar e conscientizar sobre espécies de animais que estão ameaçadas de extinção e sobre aquelas que já foram extintas, ao longo do site, você poderá conhecer diferentes espécies, descobrir onde elas vivem, o que comem, qual é a sua importância para o meio ambiente e quais são os principais motivos que podem levar uma espécie à extinção, a extinção de uma espécie não significa apenas o desaparecimento de um animal. Ela também pode afetar o equilíbrio dos ecossistemas e a biodiversidade do planeta, já que cada espécie possui uma função dentro do ambiente em que vive, por meio dessas informações, nosso intuito é aumentar o conhecimento sobre a biodiversidade, mostrar os impactos das ações humanas e incentivar a importância da preservação da natureza, conhecer essas espécies é um primeiro passo para entender por que devemos proteger os animais e os ambientes em que eles vivem.</p>
+    </footer>
 
 </body>
 

@@ -1,0 +1,353 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(
+        180deg,
+        #04111f,
+        #06243b,
+        #04111f
+    );
+    color: white;
+    overflow-x: hidden;
+}
+
+.topo {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    min-height: 75px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #062b49;
+    box-shadow: 0 3px 15px rgba(0, 180, 220, 0.20);
+}
+
+.topo h1 {
+    margin: 0;
+    color: #e8faff;
+    font-size: 28px;
+    text-shadow: 0 0 10px rgba(83, 210, 238, 0.35);
+}
+
+.topo h1 span {
+    color: #57e7ec;
+}
+
+.voltar {
+    padding: 9px 18px;
+    color: #bdeffc;
+    text-decoration: none;
+    background: rgba(35, 148, 180, 0.18);
+    border: 1px solid rgba(83, 210, 238, 0.45);
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.voltar:hover {
+    background: #53d2ee;
+    color: #04111f;
+}
+
+.cabecalho-animal {
+    width: 100%;
+    padding: 40px 20px 35px;
+    text-align: center;
+}
+
+.imagem-animal {
+    width: 700px;
+    height: 420px;
+    max-width: 90vw;
+    margin: 0 auto;
+    overflow: hidden;
+    background: #062b49;
+    border: 1px solid rgba(83, 210, 238, 0.25);
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.imagem-animal img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.nome-animal {
+    padding-top: 28px;
+}
+
+.categoria {
+    margin: 0 0 10px;
+    color: #53d2ee;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.nome-animal h2 {
+    margin: 0;
+    color: #e8faff;
+    font-size: 40px;
+    line-height: 1.2;
+    text-shadow: 0 0 12px rgba(83, 210, 238, 0.3);
+}
+
+#nome-cientifico {
+    margin: 10px 0 0;
+    color: #8fd9e8;
+    font-size: 17px;
+    font-style: italic;
+}
+
+.introducao {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 25px;
+}
+
+.bloco-introducao {
+    padding: 30px;
+    background: linear-gradient(
+        160deg,
+        rgba(11, 72, 103, 0.95),
+        rgba(5, 42, 68, 0.98)
+    );
+    border: 1px solid rgba(83, 210, 238, 0.20);
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.30);
+}
+
+.bloco-introducao h3 {
+    margin: 0 0 14px;
+    color: #53d2ee;
+    font-size: 24px;
+}
+
+.bloco-introducao p {
+    margin: 0;
+    color: #d9f7ff;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.informacoes {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 25px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.bloco-info {
+    padding: 25px;
+    background: linear-gradient(
+        160deg,
+        rgba(8, 59, 88, 0.95),
+        rgba(4, 35, 58, 0.98)
+    );
+    border: 1px solid rgba(83, 210, 238, 0.18);
+    border-radius: 20px;
+    box-shadow: 0 7px 22px rgba(0, 0, 0, 0.25);
+    transition: 0.3s;
+}
+
+.bloco-info:hover {
+    transform: translateY(-3px);
+    border-color: rgba(83, 210, 238, 0.40);
+}
+
+.bloco-info h3 {
+    margin: 0 0 12px;
+    color: #53d2ee;
+    font-size: 20px;
+}
+
+.bloco-info p {
+    margin: 0;
+    color: #d9f7ff;
+    font-size: 15px;
+    line-height: 1.75;
+}
+
+.importancia {
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto 25px;
+    padding: 30px;
+    background: linear-gradient(
+        135deg,
+        rgba(6, 71, 103, 0.95),
+        rgba(3, 40, 65, 0.98)
+    );
+    border: 1px solid rgba(83, 210, 238, 0.25);
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.30);
+    text-align: center;
+}
+
+.importancia h3 {
+    margin: 0 0 14px;
+    color: #53d2ee;
+    font-size: 24px;
+}
+
+.importancia p {
+    max-width: 850px;
+    margin: 0 auto;
+    color: #d9f7ff;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.fontes {
+    width: 90%;
+    max-width: 1000px;
+    margin: 45px auto 55px;
+    padding-top: 25px;
+    text-align: center;
+    border-top: 1px solid rgba(83, 210, 238, 0.18);
+}
+
+.fontes h3 {
+    margin: 0 0 14px;
+    color: #53d2ee;
+    font-size: 21px;
+}
+
+.fontes p {
+    max-width: 800px;
+    margin: 0 auto;
+    color: #8fd9e8;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.rodape {
+    width: 100%;
+    padding: 23px;
+    text-align: center;
+    background: #062b49;
+    color: #bdeffc;
+    border-top: 1px solid rgba(83, 210, 238, 0.20);
+}
+
+.rodape p {
+    margin: 0;
+    font-size: 14px;
+}
+
+@media (max-width: 750px) {
+
+    .topo {
+        padding: 0 20px;
+    }
+
+    .topo h1 {
+        font-size: 23px;
+    }
+
+    .informacoes {
+        grid-template-columns: 1fr;
+    }
+
+    .imagem-animal {
+        width: 370px;
+        height: 370px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .topo {
+        min-height: 65px;
+        padding: 10px 15px;
+    }
+
+    .topo h1 {
+        font-size: 18px;
+    }
+
+    .voltar {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .cabecalho-animal {
+        padding-top: 30px;
+    }
+
+    .imagem-animal {
+        width: 320px;
+        height: 320px;
+        max-width: 88vw;
+        border-radius: 20px;
+    }
+
+    .nome-animal {
+        padding-top: 23px;
+    }
+
+    .nome-animal h2 {
+        font-size: 29px;
+    }
+
+    #nome-cientifico {
+        font-size: 15px;
+    }
+
+    .introducao,
+    .informacoes,
+    .importancia,
+    .fontes {
+        width: 92%;
+    }
+
+    .bloco-introducao,
+    .bloco-info,
+    .importancia {
+        padding: 22px;
+        border-radius: 18px;
+    }
+
+    .bloco-introducao h3,
+    .importancia h3 {
+        font-size: 21px;
+    }
+
+    .bloco-info h3 {
+        font-size: 19px;
+    }
+
+    .bloco-introducao p,
+    .bloco-info p,
+    .importancia p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .imagem-animal {
+        width: 280px;
+        height: 280px;
+        object-fit: contain;
+    }
+
+    .nome-animal h2 {
+        font-size: 26px;
+    }
+}
